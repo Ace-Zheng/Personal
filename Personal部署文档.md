@@ -4,7 +4,7 @@
 ### Eclipse
 #### 1 配置Eclipse
 
-部署项目之前，你首先需要配置Eclipse，具体的配置步骤 ![Eclipse配置](https://github.com/ahualy/Java-Tutorial/blob/master/Eclipse%E9%85%8D%E7%BD%AE.md)
+部署项目之前，你首先需要配置Eclipse，具体的配置步骤[Eclipse配置](https://github.com/ahualy/Java-Tutorial/blob/master/Eclipse%E9%85%8D%E7%BD%AE.md)
 
 #### 2  执行Sql文件
 
