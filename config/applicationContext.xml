@@ -41,9 +41,6 @@
      </bean>
 	
 	
-	<bean id="sendEmail" class="ahualy.neepu.util.common.SendMail"></bean>
-	
-	
 	<!-- JDBC事务管理器 -->
 	<bean id="transactionManager" 
 	class="org.springframework.jdbc.datasource.DataSourceTransactionManager"

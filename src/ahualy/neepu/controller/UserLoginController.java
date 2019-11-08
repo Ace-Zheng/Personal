@@ -20,7 +20,6 @@ import ahualy.neepu.pojo.User;
 import ahualy.neepu.pojo.UserVisit;
 import ahualy.neepu.service.AhualyService;
 import ahualy.neepu.util.common.Constants;
-import ahualy.neepu.util.common.IPAddress;
 import ahualy.neepu.util.common.RandomCode;
 import ahualy.neepu.util.common.SessionSave;
 import ahualy.neepu.util.common.ShiroMD5Privacy;
@@ -105,12 +104,7 @@ public class UserLoginController {
 	        String Address = null;
 	        UserVisit us = UserVisitSingleton.getInstance();
 	        
-	         if(request.getHeader("host").contains("222605g71y.iask.in")) {
-	        	 String urlInfo = "http://www.ip138.com/ips138.asp?ip="+ipAddress;
-		         IPAddress ip = new IPAddress();
-		         Address = ip.getURLInfo(urlInfo, "gb2312");
-		         us.setUser_address(Address);
-	         }
+	        
 	        
 	        //将以上各访问信息存入数据库做记录
 	        /*************************************/

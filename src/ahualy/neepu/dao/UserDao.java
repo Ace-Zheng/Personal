@@ -54,7 +54,7 @@ public interface UserDao {
 				fetchType=FetchType.EAGER))
 	})
 	User get_login(@Param("loginname") String loginname,
-			@Param("password") String password);
+                   @Param("password") String password);
 	
 	
 	
@@ -80,24 +80,24 @@ public interface UserDao {
 	
 	@Select("select * from "+USERTABLE+" where loginname = #{loginname} and username = #{username}")
 	User selectByLoginAndName(
-		@Param("loginname") String loginname,
-		@Param("username") String username);
+            @Param("loginname") String loginname,
+            @Param("username") String username);
 	
 	
 	@Select("select * from "+USERTABLE+" where loginname = #{loginname} ")
 	User selectByLogin(
-		@Param("loginname") String loginname);
+            @Param("loginname") String loginname);
 	
 	@Select("select * from "+USERTABLE+" where username = #{username}")
 	User selectByName(
-		@Param("username") String username);
+            @Param("username") String username);
 	
 	
 	
 	
 	@Update("update "+USERTABLE+" set password=#{password} where loginname = #{loginname}")
 	void updatePasswordByLoginname(@Param("loginname") String loginname,
-			@Param("password") String password);
+                                   @Param("password") String password);
 	
 	
 	

@@ -82,7 +82,6 @@
               </label>
               <div class="layui-input-inline">
                   <input type="file" id="file" name="file"  >
-                  <p class="x-red">必须选择上传文件</p>
                   <p class="x-red">${param.message}</p>
               </div>
              

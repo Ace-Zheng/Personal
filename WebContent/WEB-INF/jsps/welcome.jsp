@@ -89,7 +89,7 @@ goEasy.subscribe({
                     <tbody>
                         <tr>
                             <td >
-                                <a class="x-a" href="./index?token=${sessionScope.token}&lang=zh_CN" target="_blank">创新创业型小微企业的人力资源管理平台上线了!!!</a>
+                                <a class="x-a" href="./index?token=${sessionScope.token}&lang=zh_CN" target="_blank">创新创业型小微企业人力资源管理平台上线了!!!</a>
                             </td>
                         </tr>
                         
@@ -122,7 +122,7 @@ goEasy.subscribe({
                       
                         <tr>
                             <th>上传附件限制</th>
-                            <td>2M</td></tr>
+                            <td>35M</td></tr>
                         <tr>
                             <th>执行时间限制</th>
                             <td>30s</td></tr>
@@ -140,16 +140,16 @@ goEasy.subscribe({
                     <tbody>
                         <tr>
                             <th>版权所有</th>
-                            <td>翎幺</td>
+                            <td>林幺</td>
                         </tr>
                         <tr>
                             <th>开发者</th>
-                            <td>翎幺</td></tr>
+                            <td>林幺</td></tr>
                     </tbody>
                 </table>
             </div>
         </fieldset>
-        <blockquote class="layui-elem-quote layui-quote-nm">感谢XXX老师的指导！</blockquote>
+        <blockquote class="layui-elem-quote layui-quote-nm">欢迎关注微信公众号【翎幺码】，一起进步</blockquote>
     </div>
         <script>
         var _hmt = _hmt || [];

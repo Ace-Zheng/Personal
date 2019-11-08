@@ -22,7 +22,7 @@ public class AuthorizedInterceptor  implements HandlerInterceptor {
 			"/rePassword","/checkCode","/regist","/registCode","/toregistCode","/register","/checkLoginnameAndPassword"
 			,"/checkRegistCode","/checkLoginname","/check_Register_loginname","/checkMessage","/check_Register_repassword"
 			,"/check_Register_password","/check_Register_email","/check_Register_username","/checkUsername",
-			"/checkLoginName"};
+			"/checkLoginName","/recruitment","/recruitmentlist","/recruitment/add"};
 
 	 /** 
      * 该方法需要preHandle方法的返回值为true时才会执行。

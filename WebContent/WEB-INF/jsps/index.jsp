@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>创新创业型小微企业的人力资源管理平台</title>
+	<title>创新创业型小微企业人力资源管理平台</title>
 	<meta name="renderer" content="webkit|ie-comp|ie-stand">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   
@@ -67,6 +67,7 @@
     		$("#peremployee").css("display", "none"); 
     		$("#notice").css("display", "block"); 
     		$("#document").css("display", "block"); 
+    		$("#resume").css("display", "block");
     		$("#bt").css("display", "block"); 
     		
     	}else{
@@ -84,6 +85,7 @@
     		$("#job").css("display", "none"); 
     		$("#employee").css("display", "none"); 
     		$("#peremployee").css("display", "block"); 
+    		$("#resume").css("display", "none");
     		/* if("${sessionScope.employee}"=="null"){
     			//没有查到用户，就说明，还么有关联，因此展示添加列表
     			$("#peremployee.pemployee").css("display", "block"); 
@@ -118,7 +120,7 @@
 <body oncontextmenu="self.event.returnValue=false" onselectstart="return false">
     <!-- 顶部开始 -->
     <div class="container">
-        <div class="logo" ><a href="./index?token=${sessionScope.token}&lang=zh_CN"  style="width:300px;" >创新创业型小微企业的人力资源管理平台</a></div>
+        <div class="logo" ><a href="./index?token=${sessionScope.token}&lang=zh_CN"  style="width:310px;" >创新创业型小微企业人力资源管理平台</a></div>
         
         <div class="left_open">
             <i title="展开左侧栏" class="iconfont">&#xe699;</i>
@@ -561,8 +563,32 @@
                 </ul>
             </li>
             
+    <!--******************************************************************  -->        
+            <!-- 管理员培训管理显示内容 -->
             
-            
+            <li id ="resume">
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe723;</i>
+                    <cite>招聘管理</cite>
+                    <i class="iconfont nav_right">&#xe697;</i>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a _href="${ctx }/recruitment/list">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>岗位公布</cite>
+                        </a>
+                    </li >
+                    <!-- 新增详细信息，管理员，操作管理员工培训详细信息 -->
+                    <li>
+                        <a _href="${ctx }/resume/list">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>申请情况</cite>
+                        </a>
+                    </li >
+                    
+                </ul>
+            </li>
             
             
             
@@ -607,7 +633,7 @@
     <!-- 中部结束 -->
     <!-- 底部开始 -->
     <div class="footer" style="background-color:RGB(43,48,59)">
-        <div class="copyright" align="center"style="background-color:RGB(43,48,59)">Copyright ©2019 </div>  
+        <div class="copyright" align="center"style="background-color:RGB(43,48,59)">Copyright ©2019 东北电力大学计算机学院</div>  
     </div>
     <!-- 底部结束 -->
  

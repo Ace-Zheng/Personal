@@ -8,7 +8,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +20,6 @@ import ahualy.neepu.pojo.User;
 import ahualy.neepu.service.AhualyService;
 import ahualy.neepu.util.common.Constants;
 import ahualy.neepu.util.common.RegistRandomCode;
-import ahualy.neepu.util.common.SendMail;
 import ahualy.neepu.util.common.ShiroMD5Privacy;
 
 /**
@@ -39,12 +37,7 @@ public class RegistController {
 	@Qualifier("AhualyService")
 	private AhualyService ahualyservice;//接口实现类对象
 	
-	@Autowired
-	private JavaMailSender javaMailSender;  //在spring中配置的发送邮件的bean
 	
-	@Autowired
-	@Qualifier("sendEmail")
-	private SendMail sendMail;
 	
 	private static int NUM = 0;
 	private static int NUM1 = 0;
@@ -138,7 +131,6 @@ public class RegistController {
 			   ahualyservice.updata_staticId(staticId);	
 			   //在注册成功之后，我需要通过获取邮箱信息给用户发送邮件，告诉用户管理员会在2小时之内进行身份审核
 			   //审核完之后，会发送邮件给用户，用户就可以登录系统了
-			   sendMail.sendEmail(javaMailSender,user);
 			   mv.setViewName("/loginForm");
 			   return mv;
 	}

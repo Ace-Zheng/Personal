@@ -9,7 +9,7 @@
 <html lang="zh">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=GBK">
-<title>创新创业型小微企业的人力资源管理平台</title>
+<title>创新创业型小微企业人力资源管理平台</title>
 <meta content="" name="description" />
 <meta content="" name="author" />
 <meta name="renderer" content="webkit|ie-comp|ie-stand">
@@ -23,7 +23,6 @@
 <link href="${ctx}/js/metronic/css/login.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="${ctx}/js/metronic/css/jquery.slider.css" type="text/css" />
 
-
 <script type="text/javascript" src="${ctx }/js/jquery-1.11.0.js"></script>
 <script type="text/javascript" src="${ctx }/js/jquery-migrate-1.2.1.js"></script>
 <script type="text/javascript" src="${ctx}/public/lib/layui/layui.js" charset="utf-8"></script>
@@ -31,6 +30,7 @@
 <script type="text/javascript" src="${ctx}/js/jquery.min.js"></script>
 <script type="text/javascript" src="${ctx}/js/jquery.slider.js"></script>
 <script type="text/javascript" src="${ctx}/ajax_js/check.js"></script>
+
 
 
 <script type="text/javascript">
@@ -70,9 +70,10 @@ body{
 <body oncontextmenu="self.event.returnValue=false" onselectstart="return false" >
 <div style="width: 1360px;height:48px; background-color:RGB(43,48,59) ">
       <ul style="margin-left: 40px;padding-top:6px">
-        <li style="display: inline-block;"><h1><a href="loginForm.html" style="color:white;font-size:20px;">创新创业型小微企业的人力资源管理平台</a></h1></li>
+        <li style="display: inline-block;"><h1><a href="loginForm.html" style="color:white;font-size:20px;">创新创业型小微企业人力资源管理平台</a></h1></li>
         <li style="display: inline-block; margin-left: 120px;"><a  style="font-size:14px;color:rgb(130,130,130); " >用户登陆</a></li>
         <li style="display: inline-block; margin-left: 60px;"><a href="loginForm.html" style="font-size:14px;color:rgb(130,130,130); ">首页</a></li>
+        <li style="display: inline-block; margin-left: 60px;"><a href="#" onclick="location.href='./recruitment';"style="font-size:14px;color:rgb(130,130,130); ">招聘页面</a></li>
         <li style="display: inline-block; margin-left: 80px;"><a href="javascript:alert('本系统只提供管理员和公司管理人员登录系统！！！如若注册此系统，请联系部门负责人下发注册码 ！！！');"	  style="font-size:14px;color:rgb(130,130,130); ">帮助与文档</a></li>
         <li style="display: inline-block; margin-left: 64px;"><p  style="font-size:14px;color:rgb(130,130,130);">客服电话：4008864211</p></li>
       </ul>    
@@ -134,7 +135,7 @@ body{
       </div>
        <!-- 底部开始 -->
      <div style="width: 1360px;height:48px; background-color:RGB(43,48,59) ;margin-top:610px;">
-        <div align="center" style="padding-top:15px;color:RGB(153,153,153);">Copyright ©2019 </div>
+        <div align="center" style="padding-top:15px;color:RGB(153,153,153);">Copyright ©2019 东北电力大学计算机学院</div>
     </div>
    		 <!-- 底部结束 -->
     
@@ -146,7 +147,6 @@ window.onload = function(){
 	});
 }
 </script>
-
 
 </body>
 </html>

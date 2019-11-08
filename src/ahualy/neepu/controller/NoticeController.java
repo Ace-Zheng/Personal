@@ -8,32 +8,21 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-//import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import ahualy.neepu.pojo.Notice;
 import ahualy.neepu.pojo.User;
 import ahualy.neepu.service.AhualyService;
-import ahualy.neepu.util.common.SendMail;
 import ahualy.neepu.util.page.PageModel;
-import io.goeasy.GoEasy;
 
 @Controller
 public class NoticeController {
 	@Autowired
 	@Qualifier("AhualyService")
 	private AhualyService ahualyservice;
-	
-	@Autowired
-	private JavaMailSender javaMailSender;  //在spring中配置的发送邮件的bean
-	
-	@Autowired
-	@Qualifier("sendEmail")
-	private SendMail sendMail;
 	
 	//private Map<String, Integer> map = Constants.NOTENUMBER;
 	//private boolean flag;
@@ -86,30 +75,7 @@ public class NoticeController {
 			}
 			return "/notice/edit";
 		}
-		@RequestMapping(value="/notice/add",method=RequestMethod.POST)
-		 public ModelAndView add(ModelAndView mv,@ModelAttribute Notice notice ,Integer id,Integer user_id){
-			System.out.println(id);
-			if(id!=null){
-				ahualyservice.update_NoticeInfo(notice);
-				//更新公告的同时，发送邮件给员工，及时告知
-				List<User> sqluser = ahualyservice.get_UserEmail();
-				String message = notice.getContent();
-				sendMail.sendEmail4(javaMailSender, sqluser, message);
-			}else{
-				this.genericAssociation(user_id,notice);
-				ahualyservice.insert_NoticeInfo(notice);
-				//flag =true;
-				//插入之后直接出发GoEasy提供消息发送
-				GoEasy goEasy = new GoEasy("http://rest-hangzhou.goeasy.io", "BC-0706aa93d6614a2db50b660458b42ff5");
-				goEasy.publish("myChannel","有新的公告发布，请转到公告页查看！！！");
-				//添加公告的同时，发送邮件给员工，及时告知
-				List<User> sqluser = ahualyservice.get_UserEmail();
-				String message = notice.getContent();
-				sendMail.sendEmail3(javaMailSender, sqluser, message);
-			}
-			mv.setViewName("redirect:/notice/list");
-			return mv;
-		}
+		
 		
 		@RequestMapping(value="/notice/delete",method=RequestMethod.GET)
 		 public void delete(Integer id){

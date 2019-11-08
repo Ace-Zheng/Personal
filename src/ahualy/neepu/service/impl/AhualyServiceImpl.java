@@ -22,10 +22,8 @@ import ahualy.neepu.dao.DocumentDao;
 import ahualy.neepu.dao.EducationDao;
 import ahualy.neepu.dao.EmployeeDao;
 import ahualy.neepu.dao.JobDao;
+import ahualy.neepu.dao.JobTypeDao;
 import ahualy.neepu.dao.LaborcontractDao;
-import ahualy.neepu.dao.LeaveDao;
-import ahualy.neepu.dao.LeaveStatusDao;
-import ahualy.neepu.dao.LeaveTypeDao;
 import ahualy.neepu.dao.NoticeDao;
 import ahualy.neepu.dao.RegistCodeDao;
 import ahualy.neepu.dao.SalaryDao;
@@ -47,12 +45,16 @@ import ahualy.neepu.pojo.Document;
 import ahualy.neepu.pojo.Education;
 import ahualy.neepu.pojo.Employee;
 import ahualy.neepu.pojo.Job;
+import ahualy.neepu.pojo.JobType;
 import ahualy.neepu.pojo.Laborcontract;
 import ahualy.neepu.pojo.Leave;
 import ahualy.neepu.pojo.LeaveStatus;
 import ahualy.neepu.pojo.LeaveType;
 import ahualy.neepu.pojo.Notice;
+import ahualy.neepu.pojo.Recruitment;
+import ahualy.neepu.pojo.RecruitmentStatus;
 import ahualy.neepu.pojo.RegistCode;
+import ahualy.neepu.pojo.Resume;
 import ahualy.neepu.pojo.Salary;
 import ahualy.neepu.pojo.Sex;
 import ahualy.neepu.pojo.Status;
@@ -113,15 +115,6 @@ public class AhualyServiceImpl implements AhualyService{
 	private CreateStaticIdDao createStaticIdDao;
 	
 	@Autowired
-	private LeaveTypeDao leaveTypeDao;
-	
-	@Autowired
-	private LeaveDao leaveDao;
-	
-	@Autowired
-	private LeaveStatusDao leaveStatusDao;
-	
-	@Autowired
 	private CompletionDao completionDao;
 	
 	@Autowired
@@ -129,6 +122,12 @@ public class AhualyServiceImpl implements AhualyService{
 	
 	@Autowired
 	private TrainDataDao trainDataDao;
+	
+	
+	@Autowired
+	private JobTypeDao jobTypeDao;
+	
+	
 
 	/**
 	 * 部门信息的管理
@@ -787,6 +786,12 @@ public class AhualyServiceImpl implements AhualyService{
 		
 		return userDao.selectByLogin(loginname);
 	}
+
+	@Override
+	public List<LeaveType> findLeaveType() {
+		return null;
+	}
+
 	@Override
 	public User findUserByEmail(String email) {
 		return userDao.get_UserByEmail(email);
@@ -800,83 +805,62 @@ public class AhualyServiceImpl implements AhualyService{
 		
 		return userDao.get_EmpId(id);
 	}
-	@Override
-	public List<LeaveType> findLeaveType() {
-		
-		return leaveTypeDao.selectAllLeaveType();
-	}
-	@Override
-	public void insert_LeaveInfo(Leave leave) {
-		
-		leaveDao.insert_Info(leave);
-		
-	}
-	@Override
-	public List<Leave> findLeaveListById(Integer id) {
-		
-		return leaveDao.get_Info(id);
-	}
-	@Override
-	public void delete_LeaveInfo(Integer id) {
-		leaveDao.delete_Info(id);
-	}
-	@Override
-	public Leave findLeaveById(Integer id) {
-		
-		return leaveDao.selectLeave(id);
-	}
-	@Override
-	public void update_LeaveInfo(Leave leave) {
-		
-		leaveDao.update_Info(leave);
-		
-	}
 	
-	
-	@Override
-	public Integer countLeave(Integer id) {
-		return leaveDao.get_Count(id);
-	}
-	@Override
-	public List<Leave> get_LeaveList(Leave leave, PageModel pageModel) {
-		
-		/** 当前需要分页的总数据条数  */
-		Map<String,Object> params = new HashMap<>();
-		params.put("leave", leave);
-		
-		int recordCount =leaveDao.count(params);
-	    pageModel.setRecordCount(recordCount);
-	    
-	    if(recordCount > 0){
-	        /** 开始分页查询数据：查询第几页的数据 */
-		    params.put("pageModel", pageModel);
-	    }
-	    
-	    List<Leave> leaves = leaveDao.selectByPage(params);
-		return leaves;
-	}
-	
-	@Override
-	public Integer countAllLeave(String content) {
-		
-		return leaveDao.countLeave(content);
-		
-	}
-	@Override
-	public List<Leave> get_LeaveLikeList(String content) {
-		
-		return leaveDao.get_LikeList(content);
-	}
 	@Override
 	public List<LeaveStatus> findLeaveStatus() {
-		
-		return leaveStatusDao.selectAllLeaveType();
+		return null;
 	}
+
+	@Override
+	public void insert_LeaveInfo(Leave leave) {
+
+	}
+
+	@Override
+	public List<Leave> findLeaveListById(Integer id) {
+		return null;
+	}
+
+	@Override
+	public void delete_LeaveInfo(Integer id) {
+
+	}
+
+	@Override
+	public Leave findLeaveById(Integer id) {
+		return null;
+	}
+
+	@Override
+	public void update_LeaveInfo(Leave leave) {
+
+	}
+
+	@Override
+	public Integer countLeave(Integer id) {
+		return null;
+	}
+
 	@Override
 	public Integer getEmpIdById(Integer id) {
-		
-		return leaveDao.selectEmpId(id);
+		return null;
 	}
+
+	@Override
+	public List<Leave> get_LeaveList(Leave leave, PageModel pageModel) {
+		return null;
+	}
+
+	@Override
+	public Integer countAllLeave(String content) {
+		return null;
+	}
+
+	@Override
+	public List<Leave> get_LeaveLikeList(String content) {
+		return null;
+	}
+
 	@Override
 	public List<Completion> findCompletion() {
 		
@@ -986,10 +970,93 @@ public class AhualyServiceImpl implements AhualyService{
 	public void delete_TrainDataInfo(Integer id) {
 		trainDataDao.delete_Info(id);
 	}
+
+	@Override
+	public List<Recruitment> get_RecruitmentList() {
+		return null;
+	}
+
+	@Override
+	public Recruitment get_RecruitmentById(Integer id) {
+		return null;
+	}
+
+	@Override
+	public void insert_Resume(Resume resume) {
+
+	}
+
+	@Override
+	public List<Recruitment> get_RecruitmentList1(Recruitment recruitment, PageModel pageModel) {
+		return null;
+	}
+
+	@Override
+	public List<Recruitment> get_RecruitmentLikeList(String content) {
+		return null;
+	}
+
+	@Override
+	public void delete_RecruitmentInfo(Integer id) {
+
+	}
+
+	@Override
+	public List<Resume> get_ResumeLikeList(String content) {
+		return null;
+	}
+
+	@Override
+	public List<Resume> get_ResumeList(Resume resume, PageModel pageModel) {
+		return null;
+	}
+
+	@Override
+	public Resume get_ResumeInfo(Integer id) {
+		return null;
+	}
+
+	@Override
+	public void update_ResumeInfo(Resume resume) {
+
+	}
+
+	@Override
+	public Integer countResume(String content) {
+		return null;
+	}
+
+	@Override
+	public Integer countRecruitment(String content) {
+		return null;
+	}
+
 	@Override
 	public Integer countTrainData(String content) {
 		
 		return trainDataDao.countTrainData(content);
 	}
 	
+	@Override
+	public List<JobType> get_JobType() {
+		
+		return jobTypeDao.selectAllJobType();
+	}
+
+	@Override
+	public List<RecruitmentStatus> get_RecruitmentStatusList() {
+		return null;
+	}
+
+	@Override
+	public void insert_Recruitment(Recruitment recruitment) {
+
+	}
+
+	@Override
+	public void update_Recruitment(Recruitment recruitment) {
+
+	}
+
+
 }

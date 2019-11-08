@@ -1,4 +1,4 @@
-﻿package ahualy.neepu.util.page;
+package ahualy.neepu.util.page;
 
 import java.io.IOException;
 

@@ -13,12 +13,16 @@ import ahualy.neepu.pojo.Document;
 import ahualy.neepu.pojo.Education;
 import ahualy.neepu.pojo.Employee;
 import ahualy.neepu.pojo.Job;
+import ahualy.neepu.pojo.JobType;
 import ahualy.neepu.pojo.Laborcontract;
 import ahualy.neepu.pojo.Leave;
 import ahualy.neepu.pojo.LeaveStatus;
 import ahualy.neepu.pojo.LeaveType;
 import ahualy.neepu.pojo.Notice;
+import ahualy.neepu.pojo.Recruitment;
+import ahualy.neepu.pojo.RecruitmentStatus;
 import ahualy.neepu.pojo.RegistCode;
+import ahualy.neepu.pojo.Resume;
 import ahualy.neepu.pojo.Salary;
 import ahualy.neepu.pojo.Sex;
 import ahualy.neepu.pojo.Status;
@@ -58,7 +62,7 @@ public interface AhualyService {
 	/**
 	 * 员工信息的service
 	 */
-	List<Employee> get_EmployeeList(Employee employee,PageModel pageModel);
+	List<Employee> get_EmployeeList(Employee employee, PageModel pageModel);
 	List<Employee> get_EmployeeLikeList(String content);
 	Integer countEmployee(String content);
 	Integer get_EmployeeByName(String employee_name);
@@ -71,7 +75,7 @@ public interface AhualyService {
 	 * 员工考勤信息
 	 * @return
 	 */
-	List<Checkwork> get_CheckworkList(Checkwork checkwork,PageModel pageModel);
+	List<Checkwork> get_CheckworkList(Checkwork checkwork, PageModel pageModel);
 	List<Checkwork> get_CheckworkLikeList(String content);
 	Integer countCheckwork(String content);
 	Checkwork get_CheckworkInfo(Integer id);
@@ -84,7 +88,7 @@ public interface AhualyService {
 	 * 员工合同信息
 	 * @return
 	 */
-	List<Contract> get_ContractList(Contract contract,PageModel pageModel);
+	List<Contract> get_ContractList(Contract contract, PageModel pageModel);
 	List<Contract> get_ContractLikeList(String content);
 	Integer countContract(String content);
 	Contract get_ContractInfo(Integer id);
@@ -100,7 +104,7 @@ public interface AhualyService {
 	 * 员工薪酬信息
 	 * @return
 	 */
-	List<Salary> get_SalaryList(Salary salary,PageModel pageModel);
+	List<Salary> get_SalaryList(Salary salary, PageModel pageModel);
 	List<Salary> get_SalaryLikeList(String content);
 	Integer countSalary(String content);
 	Salary get_SalaryEmp_id(Integer id);
@@ -110,7 +114,7 @@ public interface AhualyService {
 	void delete_Salary(Integer id);
 	
 	
-	List<Notice> get_NoticeList(Notice notice,PageModel pageModel);
+	List<Notice> get_NoticeList(Notice notice, PageModel pageModel);
 	List<Notice> get_NoticeLikeList(String content);
 	Integer countNotice(String content);
 	Notice get_NoticeInfo(Integer id);
@@ -119,7 +123,7 @@ public interface AhualyService {
 	void delete_NoticeInfo(Integer id);
 	
 
-	List<Document> get_DocumentList(Document document,PageModel pageModel);
+	List<Document> get_DocumentList(Document document, PageModel pageModel);
 	List<Document> get_DocumentLikeList(String content);
 	Integer countDocument(String content);
 	Document get_DocumentInfo(Integer id);
@@ -129,16 +133,16 @@ public interface AhualyService {
 	
 
 	User login(String loginname, String password);
-	User findUserByLoginAndName(String loginname,String username);
+	User findUserByLoginAndName(String loginname, String username);
 	User findUserByLogin(String loginname);
 	
 	User findUserByEmail(String email);
 	
 	User findUserByName(String username);
 	
-	void toUpdatePassword(String loginname,String password);
+	void toUpdatePassword(String loginname, String password);
 	
-	List<User> get_UserList(User user,PageModel pageModel);
+	List<User> get_UserList(User user, PageModel pageModel);
 	List<User> get_UserLikeList(String content);
 	List<User> get_UserEmail();
 	Integer countUser(String content);
@@ -155,7 +159,7 @@ public interface AhualyService {
 	/******************************/
 	
 	void insert_UserVisitInfo(UserVisit userVisit);
-	List<UserVisit> get_UserVisitList(UserVisit userVisit,PageModel pageModel);
+	List<UserVisit> get_UserVisitList(UserVisit userVisit, PageModel pageModel);
 	List<UserVisit> get_UserVisitLinkList(String content);
 	Integer countUserVisit(String content);
 	void delete_UserVisitInfo(Integer id);
@@ -242,7 +246,7 @@ public interface AhualyService {
 	Integer countLeave(Integer id);
 	Integer getEmpIdById(Integer id);
 	
-	List<Leave> get_LeaveList(Leave leave,PageModel pageModel);
+	List<Leave> get_LeaveList(Leave leave, PageModel pageModel);
 	Integer countAllLeave(String content);
 	List<Leave> get_LeaveLikeList(String content);
 	
@@ -253,7 +257,7 @@ public interface AhualyService {
 	List<Train> findTrainListById(Integer id);
 	//管理员用户查询所有员工培训信息列表(模糊查询)
 	Train findTrainById(Integer id);
-	List<Train> get_TrainList(Train train,PageModel pageModel);
+	List<Train> get_TrainList(Train train, PageModel pageModel);
 	Integer countAllTrain(String content);
 	Integer countTrain(Integer id);
 	List<Train> get_TrainLikeList(String content);
@@ -264,11 +268,29 @@ public interface AhualyService {
 	
 	
 	//培训资源
-	List<TrainData> get_TrainDataList(TrainData trainData,PageModel pageModel);
+	List<TrainData> get_TrainDataList(TrainData trainData, PageModel pageModel);
 	List<TrainData> get_TrainDataLikeList(String content);
 	Integer countTrainData(String content);
 	TrainData get_TrainDataInfo(Integer id);
 	void update_TrainDataInfo(TrainData notice);
 	void insert_TrainDataInfo(TrainData notice);
 	void delete_TrainDataInfo(Integer id);
+	
+	//招聘
+	List<Recruitment> get_RecruitmentList();
+	Recruitment get_RecruitmentById(Integer id);
+	void insert_Resume(Resume resume);
+	List<Recruitment> get_RecruitmentList1(Recruitment recruitment, PageModel pageModel);
+	List<Recruitment> get_RecruitmentLikeList(String content);
+	void delete_RecruitmentInfo(Integer id);
+	List<Resume> get_ResumeLikeList(String content);
+	List<Resume> get_ResumeList(Resume resume, PageModel pageModel);
+	Resume get_ResumeInfo(Integer id);
+	void update_ResumeInfo(Resume resume);
+	Integer countResume(String content);
+	Integer countRecruitment(String content);
+	List<JobType> get_JobType();
+	List<RecruitmentStatus> get_RecruitmentStatusList();
+	void insert_Recruitment(Recruitment recruitment);
+	void update_Recruitment(Recruitment recruitment);
 }

@@ -44,6 +44,15 @@ public class Constants {
 		public static final String LABORCONTRACTTABLE = "laborcontract_inf";
 		public static final String CONFIDENTIALITYCONTRACTTABLE = "confidentialitycontract_inf";
 		
+		//招聘所对应的表
+		    
+		public static final String RECRUITMENTTABLE = "recruitment_inf";
+		public static final String JOBTYPETABLE = "jobtype_inf";
+		public static final String RECRUITMENTSTATUSTABLE = "recruitmentstatus_inf";
+		//简历表
+		public static final String RESUMETABLE = "resume_inf";
+		
+		
 		// 登录
 		public static final String LOGIN = "loginForm?visitId="+DigestUtils.md5Hex("999");
 		public static final String CODE = "checkCode";

@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,7 +17,6 @@ import ahualy.neepu.pojo.CreateStaticId;
 import ahualy.neepu.pojo.Status;
 import ahualy.neepu.pojo.User;
 import ahualy.neepu.service.AhualyService;
-import ahualy.neepu.util.common.SendMail;
 import ahualy.neepu.util.common.ShiroMD5Privacy;
 import ahualy.neepu.util.page.PageModel;
 
@@ -27,13 +25,7 @@ public class UserController {
 	@Autowired
 	@Qualifier("AhualyService")
 	private AhualyService ahualyservice;//接口实现类对象
-	
-	@Autowired
-	private JavaMailSender javaMailSender;  //在spring中配置的发送邮件的bean
-	
-	@Autowired
-	@Qualifier("sendEmail")
-	private SendMail sendMail;
+
 	
 		@RequestMapping(value="/user/")
 		 public ModelAndView index2(ModelAndView mv){
@@ -109,12 +101,6 @@ public class UserController {
 		    	this.genericAssociation(status_id,user);
 				ahualyservice.update_UserInfo(user);
 				//提交修改之前，判断用户的satus状态,如果状态审核为1，就发送邮件给用户，提醒可以登录
-				if(user!=null&&user.getStatus().getId()==1) {
-					sendMail.sendEmail1(javaMailSender, user);
-				}
-				if(user!=null&&user.getStatus().getId()==2) {
-					sendMail.sendEmail2(javaMailSender, user);
-				}
 				
 				List<User> user_list = ahualyservice.get_UserList(user,pageModel);
 				model.addAttribute("list",user_list);
@@ -156,7 +142,6 @@ public class UserController {
 					  System.out.println("插入之后staticId==="+staticId);
 					//在注册成功之后，我需要通过获取邮箱信息给用户发送邮件，告诉用户管理员会在2小时之内进行身份审核
 					//审核完之后，会发送邮件给用户，用户就可以登录系统了
-					 sendMail.sendEmail(javaMailSender,user);
 					mv.setViewName("redirect:/user/list");
 				    return mv;
 			    	}
