@@ -10,21 +10,21 @@
 
 你clone完项目之后，项目根目录下有一个personal.sql文件，你需要打开你的navicat或者其他数据库管理软件，进行如下操作。
 
-![](E:\ABJ-AHUALY\Personal\images\a.png)
+![](images\a.png)
 
-![](E:\ABJ-AHUALY\Personal\images\b.png)
+![](images\b.png)
 
-![](E:\ABJ-AHUALY\Personal\images\c.png)
+![](images\c.png)
 
-![](E:\ABJ-AHUALY\Personal\images\d.png)
+![](images\d.png)
 
-![](E:\ABJ-AHUALY\Personal\images\e.png)
+![](images\e.png)
 
-![](E:\ABJ-AHUALY\Personal\images\f.png)
+![](images\f.png)
 
-![](E:\ABJ-AHUALY\Personal\images\g.png)
+![](images\g.png)
 
-![](E:\ABJ-AHUALY\Personal\images\h.png)
+![](images\h.png)
 
 #### 3 部署
 
