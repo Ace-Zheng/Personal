@@ -16,4 +16,4 @@
 ![](images/05.png)
 ![](images/06.png)
 ## 有需要交流的 关注微信公众号【零幺码】备注人事管理系统 撩我 就能找到我啦
-![](images/qrcode_for_gh_12f50bd18152_258.jpg)
+![](images/qrcode_for_gh_12f50bd18152_344.jpg)
